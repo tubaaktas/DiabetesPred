@@ -1,6 +1,8 @@
-from research import *
+from resource import *
 
-data = load_data("database/diabetes.csv")
+import matplotlib.pyplot as plt
+
+data = load_data("/home/tuaktas/Masaüstü/Dersler/Proje/OkulProje/database/diabetes.csv")
 """
 outcome_0_rows = data[data['Outcome'] == 0]
 
@@ -15,7 +17,6 @@ else:
     print("500'den fazla Outcome değeri 0 olan satır bulunmuyor.")
 """
 check_df(data)
-
 
 plot_outliers(data)
 
@@ -47,6 +48,8 @@ cat_summary(data, "Outcome")
 #0 değerlerini NaN olarak değiştirelim.
 nan_col=['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']
 data = fill_zeros_with_nan(data,nan_col)
+print(data.isnull().sum())
+
 #Boş değerleri dolduralım
 data = fill_missing_values(data)
 
