@@ -81,7 +81,7 @@ def get_data():
 
 
 def get_model():
-    model = joblib.load("streamlit/pipeline/model.joblib")
+    model = joblib.load("streamlit/streamlit/pipeline/model.joblib")
     return model
 
 
@@ -117,7 +117,7 @@ column_dataset.dataframe(df)
 
 # TAB INFO
 column_Tugba, column_Temel = tab_info.columns(2)
-column_Tugba.image('streamlit/galeri/tugba_pp.png', width=300)
+column_Tugba.image('streamlit/streamlit/galeri/tugba_pp.png', width=300)
 column_Tugba.subheader("Tuğba AKTAŞ")
 column_Tugba.markdown("Merhaba ben Tuğba Aktaş, Veri Bilimiyle ilgili araştırmalar yapıyor ve bu alanda mentor yardımcılığı yapıyorum. "
                       "Yani yapıyorum herhalde. Tek hayalim işsiz kalmamak.")
@@ -125,7 +125,7 @@ column_Tugba.markdown("LinkedIn : [TUAKTAS_LinkedIn](https://www.linkedin.com/in
 column_Tugba.markdown("Github : [TUAKTAS_Github](https://github.com/tubaaktas)", )
 
 
-column_Temel.image('streamlit/galeri/temelinko.png', width=300)
+column_Temel.image('streamlit/streamlit/galeri/temelinko.png', width=300)
 column_Temel.subheader("İsmail Mert TEMEL")
 column_Temel.markdown("Merhaba ben İsmail Mert TEMEL, Makine Öğrenmesi ve Veri Bilimi üzerine ufak çalışmalar yapmaya çalışıyorum. Mezun olup apartman yöneticisi olmak kariyerim adına en büyük planım.")
 column_Temel.markdown("LinkedIn : [TEMELINKO_LinkedIn](https://www.linkedin.com/in/ismail-mert-temel-688abb198/)",unsafe_allow_html=True)
@@ -145,13 +145,13 @@ tab_modelinfo.markdown(" Kaggledan temin ettiğimiz diyabet veri seti ile başar
 tab_modelinfo.markdown(" (Opsiyonel olarak veri seti 'Outcome' değeri 0 olan 500 girdinin sadece 250 girdiyi de kullanarak normal dağılım elde edilebilirdi.)")
 
 column_left, column_middle, column_right = tab_modelinfo.columns(3)
-column_left.image('streamlit/galeri/DataCheck.jpeg', width=454)
+column_left.image('streamlit/streamlit/galeri/DataCheck.jpeg', width=454)
 column_left.markdown("* check_df(data) Fonksiyonu Oluşan Çıktılar: Shape, Null Analizi, Veri Türü")
 
-column_middle.image('streamlit/galeri/myplot.jpeg', use_column_width=True)
+column_middle.image('streamlit/streamlit/galeri/myplot.jpeg', use_column_width=True)
 column_middle.markdown("* BoxPlot Grafiği")
 
-column_right.image('streamlit/galeri/myplot_corr.jpeg', use_column_width=True)
+column_right.image('streamlit/streamlit/galeri/myplot_corr.jpeg', use_column_width=True)
 column_right.markdown("* Korelasyon Grafiği")
 
 tab_modelinfo.markdown(" Veri setine hiç bir işlem uygulamadan Base Modelimizi kurduk. Bunun amacı veri setinde değişiklik "
@@ -160,16 +160,16 @@ tab_modelinfo.markdown(" Veri setine hiç bir işlem uygulamadan Base Modelimizi
                        " işlemlerini yaptık. Temel amacımız makine öğrenmesi işlemini daha iyi yapabilmekti."
                        " Aşırı öğrenmeden kaçınmak adına, yaptığımız özellik çıkarımını belli düzeyde kestik.")
 column_left1, column_right1 = tab_modelinfo.columns(2)
-column_left1.image('streamlit/galeri/accuracy_feoncesi.jpeg', use_column_width=True)
+column_left1.image('streamlit/streamlit/galeri/accuracy_feoncesi.jpeg', use_column_width=True)
 column_left1.markdown("* Accuracy Değeri Öznitelik Çıkarımı Öncesi")
 
-column_right1.image('streamlit/galeri/accuracy_fesonrasi.jpeg', use_column_width=True)
+column_right1.image('streamlit/streamlit/galeri/accuracy_fesonrasi.jpeg', use_column_width=True)
 column_right1.markdown("* Accuracy Değeri Öznitelik Çıkarımı Sonrası")
 
-column_left1.image('streamlit/galeri/f1_feoncesi.jpeg', use_column_width=True)
+column_left1.image('streamlit/streamlit/galeri/f1_feoncesi.jpeg', use_column_width=True)
 column_left1.markdown("* F1 Değeri Öznitelik Çıkarımı Öncesi")
 
-column_right1.image('streamlit/galeri/f1_fesonrasi.jpeg', use_column_width=True)
+column_right1.image('streamlit/streamlit/galeri/f1_fesonrasi.jpeg', use_column_width=True)
 column_right1.markdown("* F1 Değeri Öznitelik Çıkarımı Sonrası")
 
 tab_modelinfo.markdown(" Son olarak Final Modeller oluşturup değerlendirme metriklerine göre"
@@ -187,10 +187,10 @@ tab_modelinfo.markdown(" Normalde bu yöntemi kullanmayı planlıyorduk fakat ya
                        " bundan vazgeçtik. Final modeli olarak Random Forest kullanmaya karar verdik.")
 
 column_left2, column_right2 = tab_modelinfo.columns(2)
-column_left2.image('streamlit/galeri/RFsonuc.jpeg', width=780)
+column_left2.image('streamlit/streamlit/galeri/RFsonuc.jpeg', width=780)
 column_left2.markdown("* RF (Random Forest) Model Sonuçları")
 
-column_right2.image('streamlit/galeri/ConfusionMatrix.jpeg', width=780)
+column_right2.image('streamlit/streamlit/galeri/ConfusionMatrix.jpeg', width=780)
 column_right2.markdown("* RF (Random Forest) Confusion Matrix")
 
 
@@ -222,9 +222,9 @@ if column_model.button("Tahmin Etmek İçin Basınız"):
     prediction = model.predict(np.array(tahmin).reshape(1, -1))[0]
     # tab_model.success(f"tahmın edılen deger: {prediction[0]}")
     if prediction == 1:
-        column_modelresult.image('streamlit/galeri/diyabetsiniz.png', width=600)
+        column_modelresult.image('streamlit/streamlit/galeri/diyabetsiniz.png', width=600)
     else:
-        column_modelresult.image('streamlit/galeri/diyabetdegilsiniz.png', width=600)
+        column_modelresult.image('streamlit/streamlit/galeri/diyabetdegilsiniz.png', width=600)
         column_modelresult.success("Diyabet Değilsiniz")
         column_modelresult.balloons()
 
